@@ -11,7 +11,7 @@ import Alamofire
 
 import FBSDKLoginKit
 
-class FirstViewController: UIViewController {
+class FirstViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,10 @@ class FirstViewController: UIViewController {
 //        [self.view addSubview:loginButton];
         let loginButton : FBSDKLoginButton = FBSDKLoginButton()
         loginButton.center = self.view.center
+        loginButton.readPermissions = ["public_profile", "email", "user_friends"]
+        loginButton.delegate = self
+        //self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+        //self.loginView.delegate = self;
         self.view.addSubview(loginButton)
     }
 
@@ -32,6 +36,16 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        if error != nil
+        {
+            // TODO: Implement the upsert into the content_user table
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        
+    }
 
 }
 

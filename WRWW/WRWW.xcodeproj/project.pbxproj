@@ -14,6 +14,7 @@
 		58C3A97B1D126864008DC3CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C3A9791D126864008DC3CF /* Main.storyboard */; };
 		58C3A97D1D126864008DC3CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C3A97C1D126864008DC3CF /* Assets.xcassets */; };
 		58C3A9801D126864008DC3CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C3A97E1D126864008DC3CF /* LaunchScreen.storyboard */; };
+		58C3A9881D1277D4008DC3CF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58C3A9871D1277D4008DC3CF /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		58C3A97C1D126864008DC3CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58C3A97F1D126864008DC3CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58C3A9811D126864008DC3CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58C3A9871D1277D4008DC3CF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B4CE357F32039B3E59ABF22F /* Pods-WRWW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WRWW.release.xcconfig"; path = "Pods/Target Support Files/Pods-WRWW/Pods-WRWW.release.xcconfig"; sourceTree = "<group>"; };
 		C7AB9827399CA34279DCB793 /* Pods-WRWW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WRWW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WRWW/Pods-WRWW.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +56,7 @@
 		58C3A9671D126864008DC3CF = {
 			isa = PBXGroup;
 			children = (
+				58C3A9871D1277D4008DC3CF /* Default-568h@2x.png */,
 				58C3A9721D126864008DC3CF /* WRWW */,
 				58C3A9711D126864008DC3CF /* Products */,
 				0DFC7AE9F776308816A922C7 /* Pods */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58C3A9801D126864008DC3CF /* LaunchScreen.storyboard in Resources */,
+				58C3A9881D1277D4008DC3CF /* Default-568h@2x.png in Resources */,
 				58C3A97D1D126864008DC3CF /* Assets.xcassets in Resources */,
 				58C3A97B1D126864008DC3CF /* Main.storyboard in Resources */,
 			);
