@@ -31,7 +31,7 @@ class FirstViewController: UIViewController, FBSDKLoginButtonDelegate {
             NSLog(error.description)
         }
         
-        let cu:ContentUser = AppDelegate.contentUserRepository.model() as! ContentUser        
+        let cu:ContentUser = AppDelegate.contentUserRepository.model() as! ContentUser
         cu.first_name = "Apple"
         cu.last_name = "Computer"
         cu.saveWithSuccess({ 
