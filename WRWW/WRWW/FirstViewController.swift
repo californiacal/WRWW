@@ -13,9 +13,33 @@ import FBSDKLoginKit
 
 class FirstViewController: UIViewController, FBSDKLoginButtonDelegate {
 
+    var contentUsers = [ContentUser]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+
+        
+        AppDelegate.contentUserRepository.allWithSuccess({ (fetchedContentUsers: [AnyObject]!) -> Void in
+            self.contentUsers = fetchedContentUsers as! [ContentUser]
+            for contentUser:ContentUser in self.contentUsers
+            {
+                print(contentUser.first_name)
+            }
+        }) { (error: NSError!) -> Void in
+            NSLog(error.description)
+        }
+        
+        let cu:ContentUser = AppDelegate.contentUserRepository.model() as! ContentUser        
+        cu.first_name = "Apple"
+        cu.last_name = "Computer"
+        cu.saveWithSuccess({ 
+            print("Success")
+        }) { (error:NSError!) in
+            print("Error")
+        }
+        
         
         
 //        FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
