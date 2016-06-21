@@ -1,0 +1,204 @@
+HOW TO SET UP LOOPBACK+NODEJS FOR USE AS AN API
+===============================================================
+
+
+These Instructions follow very closely the method show at
+http://javabeat.net/loopback-mysql/
+but have been adapted to our AWS Redhat system and to demonstrate how to adapt our existing content_user to be used as the database back to the loopback model.
+
+# Install node and npm V6
+curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
+yum install -y nodejs
+
+# install strong loop and utilities
+npm install -g strongloop
+npm install -g loopback
+npm install -g cookie-parser
+npm install -g errorhandler
+
+# create a project
+[root@ip-172-31-10-22 opt]# slc loopback
+
+     _-----_
+    |       |    ╭──────────────────────────╮
+    |--(o)--|    │  Let's create a LoopBack │
+   `---------´   │       application!       │
+    ( _´U`_ )    ╰──────────────────────────╯
+    /___A___\   /
+     |  ~  |
+   __'.___.'__
+ ´   `  |° ´ Y `
+
+? What's the name of your application? WRWW_rest
+? Enter name of the directory to contain the project: WRWW_rest
+   create WRWW_rest/
+     info change the working directory to WRWW_rest
+
+? What kind of application do you have in mind? api-server (A LoopBack API server with local User auth)
+
+# Run the test instance
+[root@ip-172-31-10-22 opt]# cd /opt/WRWW_rest
+[root@ip-172-31-10-22 opt]# node .
+
+# Test route to api with web browser at
+http://52.9.234.153:3000/explorer
+
+<hit CTRL-C to terminate the node server>
+
+# Get the MySQL data source set up (or other data source with similar method)
+#  1) Install the connectore
+#  2) Configure the datasource
+npm install loopback-connector-mysql --save
+
+[root@ip-172-31-10-22 WRWW_rest]# slc loopback:datasource
+? Enter the data-source name: mysql_db
+? Select the connector for mysql_db: MySQL (supported by StrongLoop)
+Connector-specific configuration:
+? Connection String url to override other settings (eg: mysql://user:pass@host/db): mysql://root:P@n@m@07@localhost/db
+? host: localhost
+? port: 3306
+? user: root
+? password: ********
+? database: UserContent
+
+# Create the first model associated with the content_user table in the database
+[root@ip-172-31-10-22 WRWW_rest]# slc loopback:model
+? Enter the model name: content_user
+? Select the data-source to attach undefined to: mysql_db (mysql)
+? Select model's base class PersistedModel
+? Expose content_user via the REST API? Yes
+? Custom plural form (used to build REST URL): content_users
+? Common model or server only? common
+Let's add some content_user properties now.
+
+Enter an empty property name when done.
+? Property name: owner_id
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another content_user property.
+Enter an empty property name when done.
+? Property name: first_name
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another content_user property.
+Enter an empty property name when done.
+? Property name: last_name
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another content_user property.
+Enter an empty property name when done.
+? Property name: link
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another content_user property.
+Enter an empty property name when done.
+? Property name: gender
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another content_user property.
+Enter an empty property name when done.
+? Property name: locale
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another content_user property.
+Enter an empty property name when done.
+? Property name: age_range
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another content_user property.
+Enter an empty property name when done.
+? Property name: phone_number
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another content_user property.
+Enter an empty property name when done.
+? Property name: access_token
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another content_user property.
+Enter an empty property name when done.
+? Property name: email
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another content_user property.
+Enter an empty property name when done.
+? Property name: last_modified
+   invoke   loopback:property
+? Property type: date
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another content_user property.
+Enter an empty property name when done.
+? Property name:
+
+
+# Change the user_id to id in the content_user table of the MySQL database
+[root@ip-172-31-10-22 WRWW_rest]# mysql -u root -p UserContent
+
+mysql> ALTER TABLE content_user CHANGE user_id id bigint(20);
+
+# Go test out the CRUD operations at
+http://52.9.234.153:3000/explorer
+
+# To disable certain crud operations on a model, edit common/models/model-name.js and add lines like the following (which disables DELETE CRUD operations. See https://docs.strongloop.com/display/public/LB/Exposing+models+over+REST for a complete list of how to disable on a per model and whole API basis.
+     var isStatic = true;
+     Contentuser.disableRemoteMethod('deleteById', isStatic);
+
+# Create the default tables in the mysql database
+#      (1) In server/model-config.json, change the datasource to mysql_db for User, AccessToken, ACL, RoleMapping, and Role
+#      (2) Make a file called server/create-lb-tables.js with the following contents
+var server = require('./server');
+var ds = server.dataSources.mysql_db;
+var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
+ds.automigrate(lbTables, function(er) {
+  if (er) throw er;
+  console.log('Loopback tables [' + lbTables + '] created in ', ds.adapter.name);
+  ds.disconnect();
+});
+#     (3) Run ‘node create-lv-tables.js’ from the server directory
+
+# Run the node instance
+[root@ip-172-31-10-22 opt]# cd /opt/WRWW_rest
+[root@ip-172-31-10-22 opt]# node .
+
+# Going forward, the essential steps to incorporate a new model are
+#  (1) Create an SQL table or view for the data you want
+#  (2) Create a new model with the "slc loopback:model” command and get the matching datatypes right
+#  (3) Customize which CRUD operations you want to allow in the common/models/model-name.js file
+
+# The one thing I am not sure how to do yet is create relations between different tables
+# See https://strongloop.com/strongblog/defining-and-mapping-data-relations-with-loopback-connected-models/
+# for a beginners description and how the endpoints work after the relationships are identified
+# See https://docs.strongloop.com/display/public/LB/Tutorial%3A+model+relations
+# for a description of how to use the “slc loopback:relation” command to link two models and the endpoints that become available after they are related.

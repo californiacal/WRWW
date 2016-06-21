@@ -10,6 +10,7 @@
 		2648D0C9137480EF9B2AB7D5 /* Pods_WRWW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C98A6E8AA34C7DE5AF0DD5 /* Pods_WRWW.framework */; };
 		5863386B1D18B7E300279C33 /* ContentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5863386A1D18B7E300279C33 /* ContentUser.swift */; };
 		5863386D1D18B90A00279C33 /* ContentUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5863386C1D18B90A00279C33 /* ContentUserRepository.swift */; };
+		58774DE41D19F43C0033CCE8 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58774DE31D19F43C0033CCE8 /* UserAccount.swift */; };
 		58C3A9741D126864008DC3CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C3A9731D126864008DC3CF /* AppDelegate.swift */; };
 		58C3A9761D126864008DC3CF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C3A9751D126864008DC3CF /* FirstViewController.swift */; };
 		58C3A9781D126864008DC3CF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C3A9771D126864008DC3CF /* SecondViewController.swift */; };
@@ -23,6 +24,7 @@
 		35C98A6E8AA34C7DE5AF0DD5 /* Pods_WRWW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WRWW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5863386A1D18B7E300279C33 /* ContentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentUser.swift; sourceTree = "<group>"; };
 		5863386C1D18B90A00279C33 /* ContentUserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentUserRepository.swift; sourceTree = "<group>"; };
+		58774DE31D19F43C0033CCE8 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		58C3A9701D126864008DC3CF /* WRWW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WRWW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C3A9731D126864008DC3CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58C3A9751D126864008DC3CF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				5863386A1D18B7E300279C33 /* ContentUser.swift */,
 				5863386C1D18B90A00279C33 /* ContentUserRepository.swift */,
+				58774DE31D19F43C0033CCE8 /* UserAccount.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			files = (
 				58C3A9781D126864008DC3CF /* SecondViewController.swift in Sources */,
 				58C3A9741D126864008DC3CF /* AppDelegate.swift in Sources */,
+				58774DE41D19F43C0033CCE8 /* UserAccount.swift in Sources */,
 				5863386B1D18B7E300279C33 /* ContentUser.swift in Sources */,
 				5863386D1D18B90A00279C33 /* ContentUserRepository.swift in Sources */,
 				58C3A9761D126864008DC3CF /* FirstViewController.swift in Sources */,

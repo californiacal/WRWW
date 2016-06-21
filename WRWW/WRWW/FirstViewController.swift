@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 
 import FBSDKLoginKit
+import LoopBack
 
 class FirstViewController: UIViewController, FBSDKLoginButtonDelegate {
 
@@ -20,6 +21,22 @@ class FirstViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
 
+        let userAccount : User = AppDelegate.userAccountRepository.createUserWithEmail("jpswensen@hotmail.com", password: "pickles") as! User
+        userAccount.saveWithSuccess({ 
+            AppDelegate.userAccountRepository.loginWithEmail(userAccount.email, password: userAccount.password, success: { (accessToken:LBAccessToken!) in
+                print("Success")
+                print(accessToken)
+            }) { (err:NSError!) in
+                print("Error on login to new user account")
+                print(err)
+            }
+        }) { (err:NSError!) in
+            print("Error on new user account save")
+            print(err)
+        }
+        
+        
+        
         
         AppDelegate.contentUserRepository.allWithSuccess({ (fetchedContentUsers: [AnyObject]!) -> Void in
             self.contentUsers = fetchedContentUsers as! [ContentUser]
