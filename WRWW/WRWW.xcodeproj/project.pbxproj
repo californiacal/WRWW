@@ -13,6 +13,7 @@
 		58774DE41D19F43C0033CCE8 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58774DE31D19F43C0033CCE8 /* UserAccount.swift */; };
 		587EA9D81D1AEE7200624423 /* PagedIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587EA9D71D1AEE7200624423 /* PagedIntroViewController.swift */; };
 		587EA9DA1D1AF17200624423 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587EA9D91D1AF17200624423 /* Intro.storyboard */; };
+		587EA9DC1D1AFFBC00624423 /* CreateUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587EA9DB1D1AFFBC00624423 /* CreateUserViewController.swift */; };
 		58C3A9741D126864008DC3CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C3A9731D126864008DC3CF /* AppDelegate.swift */; };
 		58C3A9761D126864008DC3CF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C3A9751D126864008DC3CF /* FirstViewController.swift */; };
 		58C3A9781D126864008DC3CF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C3A9771D126864008DC3CF /* SecondViewController.swift */; };
@@ -29,6 +30,7 @@
 		58774DE31D19F43C0033CCE8 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		587EA9D71D1AEE7200624423 /* PagedIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedIntroViewController.swift; sourceTree = "<group>"; };
 		587EA9D91D1AF17200624423 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		587EA9DB1D1AFFBC00624423 /* CreateUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserViewController.swift; sourceTree = "<group>"; };
 		58C3A9701D126864008DC3CF /* WRWW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WRWW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58C3A9731D126864008DC3CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58C3A9751D126864008DC3CF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				587EA9D61D1AEE7200624423 /* intro */,
+				587EA9DB1D1AFFBC00624423 /* CreateUserViewController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				587EA9D81D1AEE7200624423 /* PagedIntroViewController.swift in Sources */,
 				58C3A9781D126864008DC3CF /* SecondViewController.swift in Sources */,
 				58C3A9741D126864008DC3CF /* AppDelegate.swift in Sources */,
+				587EA9DC1D1AFFBC00624423 /* CreateUserViewController.swift in Sources */,
 				58774DE41D19F43C0033CCE8 /* UserAccount.swift in Sources */,
 				5863386B1D18B7E300279C33 /* ContentUser.swift in Sources */,
 				5863386D1D18B90A00279C33 /* ContentUserRepository.swift in Sources */,

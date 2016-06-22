@@ -14,6 +14,7 @@ PODS:
     - FBSDKCoreKit
   - LoopBack (1.3.0)
   - SlackTextViewController (1.9.3)
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - FBSDKShareKit
   - LoopBack (from `https://github.com/strongloop/loopback-sdk-ios.git`)
   - SlackTextViewController
+  - TTTAttributedLabel
 
 EXTERNAL SOURCES:
   LoopBack:
@@ -40,7 +42,8 @@ SPEC CHECKSUMS:
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
   LoopBack: 0ae752b0c1d3f572e1d949945a7651f61c433f9e
   SlackTextViewController: bd2a34c188d4f7dec93cf42388f38551263fac82
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 871a34c86b9116e0896b3844cc8346effeb60028
+PODFILE CHECKSUM: 9d452c756f1113569042be389d49a19580906ac7
 
 COCOAPODS: 1.0.1

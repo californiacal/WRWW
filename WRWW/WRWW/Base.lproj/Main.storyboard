@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8kO-eT-gJg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xPV-8J-CjY">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,7 @@
         <!--Home-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="WRWW" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeTab" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="FirstViewController" customModule="WRWW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -49,7 +49,7 @@
         <!--Notifications-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="WRWW" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NotificationsTab" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="WRWW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -89,7 +89,7 @@
         <!--My Account-->
         <scene sceneID="nQB-x5-GPU">
             <objects>
-                <viewController id="kiZ-JS-edQ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyAccountTab" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kiZ-JS-edQ" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6wW-jJ-6pQ"/>
                         <viewControllerLayoutGuide type="bottom" id="eEF-Gf-luv"/>
@@ -108,7 +108,7 @@
         <!--My Closet-->
         <scene sceneID="ySP-uz-Mq0">
             <objects>
-                <viewController id="gKY-uj-cuu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyClosetTab" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gKY-uj-cuu" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3ge-LP-GMU"/>
                         <viewControllerLayoutGuide type="bottom" id="R6T-0m-1lp"/>
@@ -127,7 +127,7 @@
         <!--Paged Intro View Controller-->
         <scene sceneID="TVb-yd-a8j">
             <objects>
-                <viewController id="8kO-eT-gJg" customClass="PagedIntroViewController" customModule="WRWW" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="IntroViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8kO-eT-gJg" customClass="PagedIntroViewController" customModule="WRWW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RFD-uB-d5g"/>
                         <viewControllerLayoutGuide type="bottom" id="F7j-PI-fZN"/>
@@ -191,20 +191,109 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vx5-KZ-YIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1040" y="-823"/>
+            <point key="canvasLocation" x="-1229" y="-1543"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="Fy3-Pc-zZ7">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="W9r-Pk-Y5z" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="IntroPageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="W9r-Pk-Y5z" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pt1-zN-Wcd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234" y="-823"/>
+            <point key="canvasLocation" x="-235" y="-1543"/>
+        </scene>
+        <!--Create User View Controller-->
+        <scene sceneID="Cbl-6L-xer">
+            <objects>
+                <viewController storyboardIdentifier="CreateUserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xPV-8J-CjY" customClass="CreateUserViewController" customModule="WRWW" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n8D-6h-uWa"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Dc-3Z-n4u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="az7-h2-gZv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJP-4f-yoB" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="0.0" y="510" width="600" height="60"/>
+                                <string key="text">By signing in you agree to our
+privacy policy &amp; terms of service</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account? LOG IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EjX-Ay-xPH" customClass="TTTAttributedLabel">
+                                <rect key="frame" x="0.0" y="475" width="600" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MKM-j8-vL6">
+                                <rect key="frame" x="150" y="380" width="300" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mWx-9c-aeD">
+                                <rect key="frame" x="150" y="340" width="300" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eD4-HZ-WbE">
+                                <rect key="frame" x="150" y="300" width="300" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSg-xg-Af2">
+                                <rect key="frame" x="150" y="420" width="300" height="45"/>
+                                <color key="backgroundColor" white="0.92828647990000002" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="onSignupPressed:" destination="xPV-8J-CjY" eventType="touchUpInside" id="BlN-pc-0xt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YJP-4f-yoB" firstAttribute="centerX" secondItem="az7-h2-gZv" secondAttribute="centerX" id="3nd-NA-wKc"/>
+                            <constraint firstItem="mWx-9c-aeD" firstAttribute="centerX" secondItem="az7-h2-gZv" secondAttribute="centerX" id="6jw-3c-g7h"/>
+                            <constraint firstItem="1Dc-3Z-n4u" firstAttribute="top" secondItem="YJP-4f-yoB" secondAttribute="bottom" constant="30" id="9Ib-fG-Xai"/>
+                            <constraint firstItem="CSg-xg-Af2" firstAttribute="top" secondItem="MKM-j8-vL6" secondAttribute="bottom" constant="10" id="D2Q-a5-65U"/>
+                            <constraint firstItem="EjX-Ay-xPH" firstAttribute="width" secondItem="az7-h2-gZv" secondAttribute="width" id="FYM-bQ-d2w"/>
+                            <constraint firstItem="YJP-4f-yoB" firstAttribute="height" secondItem="az7-h2-gZv" secondAttribute="height" multiplier="0.1" id="IeA-UX-9CU"/>
+                            <constraint firstItem="EjX-Ay-xPH" firstAttribute="top" secondItem="CSg-xg-Af2" secondAttribute="bottom" constant="10" id="OKJ-vm-xxv"/>
+                            <constraint firstItem="MKM-j8-vL6" firstAttribute="top" secondItem="mWx-9c-aeD" secondAttribute="bottom" constant="10" id="PfT-5y-mkg"/>
+                            <constraint firstItem="YJP-4f-yoB" firstAttribute="top" secondItem="EjX-Ay-xPH" secondAttribute="bottom" constant="5" id="Qhu-k9-ng5"/>
+                            <constraint firstItem="mWx-9c-aeD" firstAttribute="width" secondItem="CSg-xg-Af2" secondAttribute="width" id="VDv-ev-GNs"/>
+                            <constraint firstItem="CSg-xg-Af2" firstAttribute="height" secondItem="az7-h2-gZv" secondAttribute="height" multiplier="0.075" id="VUf-ga-Ufc"/>
+                            <constraint firstItem="CSg-xg-Af2" firstAttribute="width" secondItem="az7-h2-gZv" secondAttribute="width" multiplier="0.5" id="aDM-i8-3Fk"/>
+                            <constraint firstItem="MKM-j8-vL6" firstAttribute="width" secondItem="CSg-xg-Af2" secondAttribute="width" id="aTB-Y3-bva"/>
+                            <constraint firstItem="eD4-HZ-WbE" firstAttribute="centerX" secondItem="az7-h2-gZv" secondAttribute="centerX" id="c2l-ZX-iWi"/>
+                            <constraint firstItem="EjX-Ay-xPH" firstAttribute="height" secondItem="az7-h2-gZv" secondAttribute="height" multiplier="0.05" id="cRd-ao-nHW"/>
+                            <constraint firstItem="EjX-Ay-xPH" firstAttribute="centerX" secondItem="az7-h2-gZv" secondAttribute="centerX" id="edv-2h-fP2"/>
+                            <constraint firstItem="CSg-xg-Af2" firstAttribute="centerX" secondItem="az7-h2-gZv" secondAttribute="centerX" id="g74-jT-Rhb"/>
+                            <constraint firstItem="mWx-9c-aeD" firstAttribute="top" secondItem="eD4-HZ-WbE" secondAttribute="bottom" constant="10" id="gjn-vY-cot"/>
+                            <constraint firstItem="eD4-HZ-WbE" firstAttribute="width" secondItem="CSg-xg-Af2" secondAttribute="width" id="mCN-c8-TQf"/>
+                            <constraint firstItem="YJP-4f-yoB" firstAttribute="width" secondItem="az7-h2-gZv" secondAttribute="width" id="mw6-Ka-ueN"/>
+                            <constraint firstItem="MKM-j8-vL6" firstAttribute="centerX" secondItem="az7-h2-gZv" secondAttribute="centerX" id="qPn-SJ-GYF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="eD4-HZ-WbE" id="nmh-mv-qL9"/>
+                        <outlet property="legalLabel" destination="YJP-4f-yoB" id="GZT-6L-X2h"/>
+                        <outlet property="loginLabel" destination="EjX-Ay-xPH" id="FVt-P8-Bah"/>
+                        <outlet property="passwordTextField" destination="MKM-j8-vL6" id="8Nk-nx-Mnw"/>
+                        <outlet property="phoneTextField" destination="mWx-9c-aeD" id="RA4-sb-Eqn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Zy-rz-RN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1237" y="-676"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="PrimaryTabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
