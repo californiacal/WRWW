@@ -124,4 +124,14 @@ class PagedIntroViewController : UIViewController, UIPageViewControllerDelegate,
         }
     }
     
+    @IBAction func onGetStartedPressed(sender: AnyObject) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let createUserVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("CreateUserViewController")
+        
+        self.navigationController?.setViewControllers([createUserVC], animated: true)
+        
+    }
+    
+    
 }

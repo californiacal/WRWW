@@ -33,7 +33,7 @@ extension String {
     //validate PhoneNumber
     var isPhoneNumber: Bool {
         
-        let charcter  = NSCharacterSet(charactersInString: "+0123456789").invertedSet
+        let charcter  = NSCharacterSet(charactersInString: "+-0123456789").invertedSet
         var filtered:NSString!
         let inputString:NSArray = self.componentsSeparatedByCharactersInSet(charcter)
         filtered = inputString.componentsJoinedByString("")
@@ -85,6 +85,7 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate {
         if url.absoluteString == "LOGIN"
         {
             print("LOGIN link pressed")
+            // FIXME: Transition to a login screen instead of an account creation screen
         }
         else
         {
@@ -102,7 +103,7 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate {
             emailTextField.attributedPlaceholder = NSAttributedString(string: "E-mail Address Required", attributes: [NSForegroundColorAttributeName:color])
             
         }
-        if !((phoneTextField.text?.isPhoneNumber)!)
+        if phoneTextField.text?.characters.count == 0 || !((phoneTextField.text?.isPhoneNumber)!)
         {
             let color = UIColor.redColor()
             phoneTextField.attributedPlaceholder = NSAttributedString(string: "Mobile Phone Required", attributes: [NSForegroundColorAttributeName:color])
@@ -115,13 +116,17 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate {
         }
         
         
-        // TODO:
         // If all are satisfied, then let's make an API call to create the user account
         if (emailTextField.text?.isEmail)! &&
-           (phoneTextField.text?.isPhoneNumber)! &&
+           phoneTextField.text?.characters.count > 0 && (phoneTextField.text?.isPhoneNumber)! &&
            passwordTextField.text?.characters.count >= 6
         {
-            print("Should create user account through API")
+            
+            // FIXME: Only do this transition of the account creation succeeded
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("PrimaryTabBarViewController")
+            
+            self.navigationController?.setViewControllers([mainVC], animated: true)
         }
         
     }
