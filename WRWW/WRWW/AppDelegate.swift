@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    static let adapter = LBRESTAdapter(URL: NSURL(string: "https://localhost:3000/api/"))
+    static let adapter = LBRESTAdapter(URL: NSURL(string: "http://localhost:3000/api/"))
     static let contentUserRepository = adapter.repositoryWithClass(ContentUserRepository) as! ContentUserRepository
 
     static let userAccountRepository = adapter.repositoryWithClass(UserRepository) as! UserRepository
