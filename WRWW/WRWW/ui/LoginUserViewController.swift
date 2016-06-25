@@ -43,7 +43,7 @@ class LoginUserViewController : UIViewController, TTTAttributedLabelDelegate, UI
         recoverLabel!.activeLinkAttributes = [NSForegroundColorAttributeName : linkActiveColor]
         recoverLabel!.enabledTextCheckingTypes = NSTextCheckingType.Link.rawValue
         let recoverLabelString = recoverLabel!.text! as NSString
-        let recoverLabelRange  = recoverLabelString.rangeOfString("Forgot your username and password?")
+        let recoverLabelRange  = recoverLabelString.rangeOfString("Forgot Your Username or Password?")
         recoverLabel?.addLinkToURL(NSURL(string:"http://www.swengames.com"), withRange: recoverLabelRange)
     }
     

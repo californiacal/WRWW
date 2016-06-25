@@ -347,7 +347,7 @@ privacy policy &amp; terms of service</string>
         <!--Login User View Controller-->
         <scene sceneID="yzY-fl-nWm">
             <objects>
-                <viewController storyboardIdentifier="LoginUserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="saN-xg-biu" customClass="LoginUserViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginUserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="saN-xg-biu" customClass="LoginUserViewController" customModule="WRWW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eW4-DO-mcj"/>
                         <viewControllerLayoutGuide type="bottom" id="sAG-CB-LlA"/>
@@ -356,15 +356,13 @@ privacy policy &amp; terms of service</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hL9-XZ-zot" customClass="TTTAttributedLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Your Username or Password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hL9-XZ-zot" customClass="TTTAttributedLabel">
                                 <rect key="frame" x="0.0" y="510" width="600" height="60"/>
-                                <string key="text">By signing in you agree to our
-privacy policy &amp; terms of service</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account? LOG IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7d-yr-kAs" customClass="TTTAttributedLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need to create an account? SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7d-yr-kAs" customClass="TTTAttributedLabel">
                                 <rect key="frame" x="0.0" y="475" width="600" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -375,7 +373,7 @@ privacy policy &amp; terms of service</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" secureTextEntry="YES"/>
                                 <connections>
-                                    <outlet property="delegate" destination="saN-xg-biu" id="E0P-zf-ra4"/>
+                                    <outlet property="delegate" destination="saN-xg-biu" id="3lb-0W-wtp"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pQc-G2-jEP">
@@ -383,7 +381,7 @@ privacy policy &amp; terms of service</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
-                                    <outlet property="delegate" destination="saN-xg-biu" id="LhX-56-1cF"/>
+                                    <outlet property="delegate" destination="saN-xg-biu" id="REP-Sx-S1X"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWl-Op-V6e">
@@ -392,6 +390,9 @@ privacy policy &amp; terms of service</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="onSignupPressed:" destination="saN-xg-biu" eventType="touchUpInside" id="cRo-cc-sUA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -416,6 +417,12 @@ privacy policy &amp; terms of service</string>
                             <constraint firstItem="FWl-Op-V6e" firstAttribute="height" secondItem="R0t-pi-FxO" secondAttribute="height" multiplier="0.075" id="rib-N0-Uqk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="pQc-G2-jEP" id="9JE-DZ-1bE"/>
+                        <outlet property="passwordTextField" destination="CaZ-M6-ybG" id="sg4-JZ-G8v"/>
+                        <outlet property="recoverLabel" destination="hL9-XZ-zot" id="iTa-jm-3g9"/>
+                        <outlet property="signupLabel" destination="d7d-yr-kAs" id="0t5-jQ-kc0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvb-XH-lPs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

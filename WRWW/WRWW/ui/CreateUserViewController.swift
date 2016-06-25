@@ -127,7 +127,7 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate, U
            phoneTextField.text?.characters.count > 0 && (phoneTextField.text?.isPhoneNumber)! &&
            passwordTextField.text?.characters.count >= 6
         {
-            let userAccount : User = AppDelegate.userAccountRepository.createUserWithEmail("jpswensen@hotmail.com", password: "pickles") as! User
+            let userAccount : User = AppDelegate.userAccountRepository.createUserWithEmail(emailTextField.text, password: passwordTextField.text) as! User
             userAccount.saveWithSuccess({
                 AppDelegate.userAccountRepository.loginWithEmail(userAccount.email, password: userAccount.password, success: { (accessToken:LBAccessToken!) in
                     print("Success")
