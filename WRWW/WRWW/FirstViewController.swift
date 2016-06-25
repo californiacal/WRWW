@@ -51,8 +51,6 @@ class FirstViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         
         
-        
-        
         //        AppDelegate.contentUserRepository.allWithSuccess({ (fetchedContentUsers: [AnyObject]!) -> Void in
         //            self.contentUsers = fetchedContentUsers as! [ContentUser]
         //            for contentUser:ContentUser in self.contentUsers

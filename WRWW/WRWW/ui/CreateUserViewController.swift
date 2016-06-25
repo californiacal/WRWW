@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import TTTAttributedLabel
+import LoopBack
 
 extension String {
     
@@ -42,7 +43,7 @@ extension String {
     }
 }
 
-class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate {
+class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var loginLabel : TTTAttributedLabel?
     @IBOutlet weak var legalLabel : TTTAttributedLabel?
@@ -85,7 +86,12 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate {
         if url.absoluteString == "LOGIN"
         {
             print("LOGIN link pressed")
+            
             // FIXME: Transition to a login screen instead of an account creation screen
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("LoginUserViewController")
+            
+            self.navigationController?.setViewControllers([mainVC], animated: true)
         }
         else
         {
@@ -121,16 +127,59 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate {
            phoneTextField.text?.characters.count > 0 && (phoneTextField.text?.isPhoneNumber)! &&
            passwordTextField.text?.characters.count >= 6
         {
+            let userAccount : User = AppDelegate.userAccountRepository.createUserWithEmail("jpswensen@hotmail.com", password: "pickles") as! User
+            userAccount.saveWithSuccess({
+                AppDelegate.userAccountRepository.loginWithEmail(userAccount.email, password: userAccount.password, success: { (accessToken:LBAccessToken!) in
+                    print("Success")
+                    print(accessToken)
+                    
+                    
+                    // FIXME: perform a post to create an entry in the content_user table with the correct phone number and owner_id as the foreign key for the User table
+                    
+                    
+                    // Only do this transition of the account creation succeeded
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let mainVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("PrimaryTabBarViewController")
+                    
+                    self.navigationController?.setViewControllers([mainVC], animated: true)
+                    
+                }) { (err:NSError!) in
+                    print("Error on login to new user account")
+                    
+                    // create the alert
+                    let alert = UIAlertController(title: "User login error", message: "Unable to log in to user account.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    // add an action (button)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    
+                    // show the alert
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                    print(err)
+                }
+            }) { (err:NSError!) in
+                print("Error on new user account save")
+                
+                // create the alert
+                let alert = UIAlertController(title: "New user error", message: "Unable to create a new user account.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                // add an action (button)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                
+                // show the alert
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+                print(err)
+            }
             
-            // FIXME: Only do this transition of the account creation succeeded
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("PrimaryTabBarViewController")
             
-            self.navigationController?.setViewControllers([mainVC], animated: true)
         }
         
     }
 
     
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 }
