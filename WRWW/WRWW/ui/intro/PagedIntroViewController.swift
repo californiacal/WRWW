@@ -88,11 +88,7 @@ class PagedIntroViewController : UIViewController, UIPageViewControllerDelegate,
         
         
     }
-    
-//    func pageViewController(pageViewController: UIPageViewController, spineLocationForInterfaceOrientation orientation: UIInterfaceOrientation) -> UIPageViewControllerSpineLocation {
-//        
-//    }
-    
+        
     
     // MARK: Datasource functions
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
@@ -127,7 +123,7 @@ class PagedIntroViewController : UIViewController, UIPageViewControllerDelegate,
     @IBAction func onGetStartedPressed(sender: AnyObject) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let createUserVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("CreateUserViewController")
+        let createUserVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("LoginUserViewController")
         
         self.navigationController?.setViewControllers([createUserVC], animated: true)
         

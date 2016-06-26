@@ -8,7 +8,22 @@
 
 import Foundation
 import LoopBack
+import Locksmith
 
+struct ApiAccount: ReadableSecureStorable,
+    CreateableSecureStorable,
+    DeleteableSecureStorable,
+    GenericPasswordSecureStorable
+{
+    let username: String
+    let password: String
+    
+    let service = "WRWW"
+    var account: String { return username }
+    var data: [String: AnyObject] {
+        return ["password": password]
+    }
+}
 
 class UserRepository : LBUserRepository {
     override init!(className name: String!) {

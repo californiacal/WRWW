@@ -82,6 +82,9 @@
         if (!self.modelClass) {
             self.modelClass = [LBModel class];
         }
+        
+        // Add this repository to the dictionary of all repositories
+        [LBModelRepository.repositoriesDict setObject:self forKey:name];
     }
 
     return self;
@@ -130,7 +133,18 @@
                 else if (strncmp(type, "T@\"CLLocation\",", 15) == 0) {
                     obj = [SLObject locationFromEncodedProperty:obj];
                 }
+            } else if ([obj isKindOfClass:[NSArray class]])
+            {
+                LBModelRepository* repository = [LBModelRepository.repositoriesDict objectForKey:key];
+                NSMutableArray* tmp = [NSMutableArray array];
+                for (NSDictionary* dict in obj)
+                {
+                    LBModel* model = [repository modelWithDictionary:dict];
+                    [tmp addObject:model];
+                }
+                obj = tmp;
             }
+                
 
             @try {
                 [model setValue:obj forKey:key];
@@ -143,6 +157,15 @@
     }
 
     return model;
+}
+
++ (NSMutableDictionary *) repositoriesDict {
+    static NSMutableDictionary *g_modelsDict = nil;
+    if (g_modelsDict == nil) {
+        // create dict
+        g_modelsDict = [[NSMutableDictionary alloc] init];
+    }
+    return g_modelsDict;
 }
 
 @end

@@ -13,6 +13,7 @@ import FBSDKShareKit
 import FBSDKLoginKit
 
 import LoopBack
+import Locksmith
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,14 +21,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     static let adapter = LBRESTAdapter(URL: NSURL(string: "http://localhost:3000/api/"))
-    static let contentUserRepository = adapter.repositoryWithClass(ContentUserRepository) as! ContentUserRepository
+    static let wardrobeUserRepository = adapter.repositoryWithClass(WardrobeUserRepository) as! WardrobeUserRepository
+    
+    static let userClosetRepository = adapter.repositoryWithClass(UserClosetRepository) as! UserClosetRepository
+    static let userClosetItemRepository = adapter.repositoryWithClass(UserClosetItemRepository) as! UserClosetItemRepository
 
+    static let userOutfitRepository = adapter.repositoryWithClass(UserOutfitRepository) as! UserOutfitRepository
+    static let userOutfitItemRepository = adapter.repositoryWithClass(UserOutfitItemRepository) as! UserOutfitItemRepository
+    
     static let userAccountRepository = adapter.repositoryWithClass(UserRepository) as! UserRepository
+    
+    static var userId:String? = nil
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        let _ = AppDelegate.wardrobeUserRepository
+        let _ = AppDelegate.userClosetRepository
+        let _ = AppDelegate.userClosetItemRepository
+        let _ = AppDelegate.userOutfitRepository
+        let _ = AppDelegate.userOutfitItemRepository
+        let _ = AppDelegate.userAccountRepository
+        
+        
+        do {
+            let dictionary = Locksmith.loadDataForUserAccount("WRWW")
+            print(dictionary)
+        } catch _ {
+            
+        }
         
         return true
     }

@@ -14,12 +14,75 @@ import LoopBack
 
 class FirstViewController: UIViewController, FBSDKLoginButtonDelegate {
     
-    var contentUsers = [ContentUser]()
+    
+    @IBAction func onButtonPressed(sender: AnyObject) {
+
+        // Example of inserting an new item in the user_closet table
+//        let closet:UserCloset = UserCloset(repository: AppDelegate.userClosetRepository, parameters: nil)
+//        //closet.repository = AppDelegate.userClosetRepository
+//        
+//        closet.owner_id = Int(AppDelegate.userId!)
+//        closet.closet_name = "My First Closet"
+//        closet.wardrobe_type_id = 0
+//        closet.privacy_level_id = 0
+//        closet.user_location_id = 0
+//        closet.create_date = NSDate()
+//        closet.delete_datetime = nil
+//        
+//        closet.saveWithSuccess({
+//            print("Success saving closet")
+//        }) { (err:NSError!) in
+//            print("Error saving closet")
+//            print(err)
+//        }
+        
+        // Retrieve all the user closet items
+//        AppDelegate.userClosetRepository.allWithSuccess({ (fetchedUserClosets:[AnyObject]!) in
+//            let userClosets = fetchedUserClosets as! [UserCloset]
+//            for userCloset:UserCloset in userClosets
+//            {
+//                print(userCloset)
+//            }
+//        }) { (err:NSError!) in
+//            print(err)
+//        }
+        
+        
+        
+        // Retrieve a limited list with includes
+        AppDelegate.userClosetRepository.findWithFilter(["where":["id":3],"include":"user_closet_items"], success: { (objectList:[AnyObject]!) in
+            print(objectList)
+            if let closets = objectList as? [UserCloset] {
+                for closet in closets {
+                    print(closet)
+                    
+                    
+                    //let closetItem:UserClosetItem = AppDelegate.userClosetItemRepository.modelWithDictionary(closet.user_closet_items![1] as [NSObject : AnyObject]) as! UserClosetItem
+                    //print(closetItem)
+                    
+                }
+            }
+        }) { (err:NSError!) in
+            print(err)
+        }
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //AppDelegate.userOutfitRepository.findWithFilter(<#T##filter: [NSObject : AnyObject]!##[NSObject : AnyObject]!#>, success: <#T##LBPersistedModelAllSuccessBlock!##LBPersistedModelAllSuccessBlock!##([AnyObject]!) -> Void#>, failure: <#T##SLFailureBlock!##SLFailureBlock!##(NSError!) -> Void#>)
         
         //        let userAccount : User = AppDelegate.userAccountRepository.createUserWithEmail("jpswensen@hotmail.com", password: "pickles") as! User
         //        userAccount.saveWithSuccess({
@@ -36,19 +99,19 @@ class FirstViewController: UIViewController, FBSDKLoginButtonDelegate {
         //        }
         
         
-        AppDelegate.userAccountRepository.loginWithEmail("jpswensen@hotmail.com", password: "pickles", success: { (accessToken:LBAccessToken!) in
-            print("Success")
-            print(accessToken)
-            AppDelegate.userAccountRepository.findById(2, success: { (model:LBPersistedModel!) in
-                print(model)
-            }) { (err:NSError!) in
-                print (err)
-            }
-            
-        }) { (err:NSError!) in
-            print("Error on login to new user account")
-            print(err)
-        }
+//        AppDelegate.userAccountRepository.loginWithEmail("jpswensen@hotmail.com", password: "pickles", success: { (accessToken:LBAccessToken!) in
+//            print("Success")
+//            print(accessToken)
+//            AppDelegate.userAccountRepository.findById(2, success: { (model:LBPersistedModel!) in
+//                print(model)
+//            }) { (err:NSError!) in
+//                print (err)
+//            }
+//            
+//        }) { (err:NSError!) in
+//            print("Error on login to new user account")
+//            print(err)
+//        }
         
         
         //        AppDelegate.contentUserRepository.allWithSuccess({ (fetchedContentUsers: [AnyObject]!) -> Void in

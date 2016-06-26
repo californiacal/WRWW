@@ -13,4 +13,6 @@ target 'WRWW' do
   pod 'LoopBack', :git => 'https://github.com/strongloop/loopback-sdk-ios.git'
   pod 'SlackTextViewController'
   pod 'TTTAttributedLabel'
+  pod 'Locksmith'
+  pod 'Fusuma'
 end

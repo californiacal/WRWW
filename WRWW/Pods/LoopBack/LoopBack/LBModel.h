@@ -90,4 +90,11 @@
  */
 - (LBModel *)modelWithDictionary:(NSDictionary *)dictionary;
 
+/**
+ * Accesses the singleton dictionary of all model repositories
+ *
+ * @return      A dictionary of model
+ */
++ (NSMutableDictionary*) repositoriesDict;
+
 @end

@@ -12,6 +12,8 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.12.0):
     - FBSDKCoreKit
+  - Fusuma (0.4.1)
+  - Locksmith (2.0.8)
   - LoopBack (1.3.0)
   - SlackTextViewController (1.9.3)
   - TTTAttributedLabel (2.0.0)
@@ -21,6 +23,8 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - Fusuma
+  - Locksmith
   - LoopBack (from `https://github.com/strongloop/loopback-sdk-ios.git`)
   - SlackTextViewController
   - TTTAttributedLabel
@@ -40,10 +44,12 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
+  Fusuma: 4dbaa05a2a20ab11a41f8dedbe650c904ea99625
+  Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   LoopBack: 0ae752b0c1d3f572e1d949945a7651f61c433f9e
   SlackTextViewController: bd2a34c188d4f7dec93cf42388f38551263fac82
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 9d452c756f1113569042be389d49a19580906ac7
+PODFILE CHECKSUM: 59aced4a88e7a31cadaeccdc779c1f31c5b02e35
 
 COCOAPODS: 1.0.1

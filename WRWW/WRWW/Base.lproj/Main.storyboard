@@ -6,7 +6,7 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController storyboardIdentifier="HomeTab" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="FirstViewController" customModule="WRWW" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,6 +31,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PsX-Lm-CKB">
+                                <rect key="frame" x="278" y="202" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="dv9-dp-Oa7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86666673419999996" green="0.35294118520000001" blue="0.2941176593" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
@@ -40,13 +47,13 @@
                             <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="" image="Home" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1194" y="-156"/>
         </scene>
-        <!--Notifications-->
+        <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController storyboardIdentifier="NotificationsTab" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="WRWW" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,13 +87,13 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notifications" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="Notifications" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="898" y="712"/>
         </scene>
-        <!--My Account-->
+        <!--View Controller-->
         <scene sceneID="nQB-x5-GPU">
             <objects>
                 <viewController storyboardIdentifier="MyAccountTab" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kiZ-JS-edQ" sceneMemberID="viewController">
@@ -99,13 +106,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.61275097280000002" green="0.4453016206" blue="0.82512235639999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Account" image="second" id="79K-iG-sUz"/>
+                    <tabBarItem key="tabBarItem" title="" image="Profile" id="79K-iG-sUz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EEI-1M-zrf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1216" y="1623"/>
         </scene>
-        <!--My Closet-->
+        <!--View Controller-->
         <scene sceneID="ySP-uz-Mq0">
             <objects>
                 <viewController storyboardIdentifier="MyClosetTab" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gKY-uj-cuu" sceneMemberID="viewController">
@@ -118,7 +125,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.59995140520000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="My Closet" image="first" id="T3u-X1-f0P"/>
+                    <tabBarItem key="tabBarItem" title="" image="MyCloset" id="T3u-X1-f0P"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9aq-rZ-z7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -430,7 +437,9 @@ privacy policy &amp; terms of service</string>
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="Home" width="39" height="33"/>
+        <image name="MyCloset" width="46" height="34"/>
+        <image name="Notifications" width="38" height="33"/>
+        <image name="Profile" width="39" height="35"/>
     </resources>
 </document>

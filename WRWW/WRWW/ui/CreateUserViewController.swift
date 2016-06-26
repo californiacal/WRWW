@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import TTTAttributedLabel
 import LoopBack
+import Locksmith
 
 extension String {
     
@@ -78,6 +79,13 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate, U
         let originalString = legalLabel!.text! as NSString
         let range  = originalString.rangeOfString("privacy policy & terms of service")
         legalLabel?.addLinkToURL(NSURL(string:"http://www.swengames.com"), withRange: range)
+        
+        do {
+            let dictionary = Locksmith.loadDataForUserAccount("WRWW")
+            print(dictionary)
+        } catch _ {
+            
+        }
     }
     
     
@@ -133,6 +141,16 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate, U
                     print("Success")
                     print(accessToken)
                     
+                    
+                    
+                    do {
+                        let dictionary = try Locksmith.loadDataForUserAccount("WRWW")
+                        if dictionary == nil {
+                            try Locksmith.saveData(["username": userAccount.email, "password": userAccount.password], forUserAccount: "WRWW")
+                        }
+                    } catch _ {
+                        
+                    }
                     
                     // FIXME: perform a post to create an entry in the content_user table with the correct phone number and owner_id as the foreign key for the User table
                     
