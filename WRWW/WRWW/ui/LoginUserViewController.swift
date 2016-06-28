@@ -64,7 +64,7 @@ class LoginUserViewController : UIViewController, TTTAttributedLabelDelegate, UI
         {
             print("SIGNUP link pressed")
             
-            // FIXME: Transition to a login screen instead of an account creation screen
+            // Transition to a login screen instead of an account creation screen
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mainVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("CreateUserViewController")
             

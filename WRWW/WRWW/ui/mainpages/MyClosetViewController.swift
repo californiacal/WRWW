@@ -33,11 +33,18 @@ class MyClosetViewController : UIViewController, UICollectionViewDelegate, UICol
         
         categoryDropdown.anchorView = categorySelectionBar
         categoryDropdown.dataSource = ["Accessories", "Dresses", "Handbags"]
-        //categoryDropdown.show()
-        
         categoryDropdown.selectionAction = { [unowned self] (index: Int, item: String) in
             print("Selected item: \(item) at index: \(index)")
             self.categorySelectionBar.setTitle(item, forState: UIControlState.Normal)
+            
+            // FIXME: Conduct a new query based on the category type
+            //  (1) Figure out the ID of the current closet category
+            //  (2) If specific category
+            //          UserClosetItems.findWithFilter("where", ["user_closet_id":ID, "owner_id":currentId])
+            //  (3) If "All Clothing Categories"
+            //          UserClosetItems.all
+            
+            //  (4) Take the results and reload the closetCollectionView
         }
         
         
@@ -50,9 +57,24 @@ class MyClosetViewController : UIViewController, UICollectionViewDelegate, UICol
         layout.minimumColumnSpacing = 10
         layout.minimumInteritemSpacing = 10
         layout.columnCount = 2
-
         
         self.closetCollectionView.collectionViewLayout = layout
+        
+        // Query the list of closet categories
+        AppDelegate.userClosetRepository.allWithSuccess({ (closets:[AnyObject]!) in
+            
+            var categoryArray:[String]? = ["All Clothing Categories"]
+            
+            for  closet in closets as! [UserCloset] {
+                categoryArray?.append(closet.closet_name)
+            }
+            
+            self.categoryDropdown.dataSource = categoryArray!
+            self.categoryDropdown.reloadAllComponents()
+            
+        }) { (err:NSError!) in
+            print(err)
+        }
     }
     
     @IBAction func onCategoryPressed(sender: AnyObject) {
@@ -60,7 +82,11 @@ class MyClosetViewController : UIViewController, UICollectionViewDelegate, UICol
     }
     
     func onBarItem(sender: AnyObject) {
+        // Transition to a login screen instead of an account creation screen
+        let storyboard = UIStoryboard(name: "MyCloset", bundle: nil)
+        let mainVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("AddClothingCategorySelectViewController")
         
+        self.navigationController?.pushViewController(mainVC, animated: true)
     }
     
     
