@@ -6,6 +6,8 @@ PODS:
   - Bolts/AppLinks (1.7.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.7.0)
+  - CollectionViewWaterfallLayout (0.2.2)
+  - DropDown (0.1.5)
   - FBSDKCoreKit (4.12.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.12.0):
@@ -20,6 +22,8 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - CollectionViewWaterfallLayout
+  - DropDown
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -41,6 +45,8 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  CollectionViewWaterfallLayout: b4f9aabad89609696ea3f6dceff956dd58e2bae4
+  DropDown: addffd49f2a014e079ed854adcb3c5473c1ebdf2
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
@@ -50,6 +56,6 @@ SPEC CHECKSUMS:
   SlackTextViewController: bd2a34c188d4f7dec93cf42388f38551263fac82
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 59aced4a88e7a31cadaeccdc779c1f31c5b02e35
+PODFILE CHECKSUM: 6dfe01f25d3b7aea2dde689f39dd877541f72755
 
 COCOAPODS: 1.0.1

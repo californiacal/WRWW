@@ -21,6 +21,9 @@
 		58C3A97D1D126864008DC3CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58C3A97C1D126864008DC3CF /* Assets.xcassets */; };
 		58C3A9801D126864008DC3CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58C3A97E1D126864008DC3CF /* LaunchScreen.storyboard */; };
 		58C3A9881D1277D4008DC3CF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58C3A9871D1277D4008DC3CF /* Default-568h@2x.png */; };
+		58D108811D21CC27007B6BF3 /* AccountPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D108801D21CC27007B6BF3 /* AccountPageViewController.swift */; };
+		58D108831D21D447007B6BF3 /* MyClosetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D108821D21D447007B6BF3 /* MyClosetViewController.swift */; };
+		58D108851D21EA4A007B6BF3 /* ClosetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D108841D21EA4A007B6BF3 /* ClosetCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		58C3A97F1D126864008DC3CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58C3A9811D126864008DC3CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58C3A9871D1277D4008DC3CF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		58D108801D21CC27007B6BF3 /* AccountPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountPageViewController.swift; sourceTree = "<group>"; };
+		58D108821D21D447007B6BF3 /* MyClosetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyClosetViewController.swift; sourceTree = "<group>"; };
+		58D108841D21EA4A007B6BF3 /* ClosetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosetCell.swift; sourceTree = "<group>"; };
 		B4CE357F32039B3E59ABF22F /* Pods-WRWW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WRWW.release.xcconfig"; path = "Pods/Target Support Files/Pods-WRWW/Pods-WRWW.release.xcconfig"; sourceTree = "<group>"; };
 		C7AB9827399CA34279DCB793 /* Pods-WRWW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WRWW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WRWW/Pods-WRWW.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +83,7 @@
 		587EA9D51D1AEE7200624423 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				58D1087F1D21CC16007B6BF3 /* mainpages */,
 				587EA9D61D1AEE7200624423 /* intro */,
 				587EA9DB1D1AFFBC00624423 /* CreateUserViewController.swift */,
 				587EA9DD1D1E022C00624423 /* LoginUserViewController.swift */,
@@ -126,6 +133,16 @@
 				58C3A9811D126864008DC3CF /* Info.plist */,
 			);
 			path = WRWW;
+			sourceTree = "<group>";
+		};
+		58D1087F1D21CC16007B6BF3 /* mainpages */ = {
+			isa = PBXGroup;
+			children = (
+				58D108801D21CC27007B6BF3 /* AccountPageViewController.swift */,
+				58D108821D21D447007B6BF3 /* MyClosetViewController.swift */,
+				58D108841D21EA4A007B6BF3 /* ClosetCell.swift */,
+			);
+			path = mainpages;
 			sourceTree = "<group>";
 		};
 		AAC651DAC8265CF86868378A /* Frameworks */ = {
@@ -260,11 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58D108851D21EA4A007B6BF3 /* ClosetCell.swift in Sources */,
 				587EA9D81D1AEE7200624423 /* PagedIntroViewController.swift in Sources */,
 				58C3A9781D126864008DC3CF /* SecondViewController.swift in Sources */,
 				58C3A9741D126864008DC3CF /* AppDelegate.swift in Sources */,
 				587EA9DC1D1AFFBC00624423 /* CreateUserViewController.swift in Sources */,
 				587EA9DE1D1E022C00624423 /* LoginUserViewController.swift in Sources */,
+				58D108811D21CC27007B6BF3 /* AccountPageViewController.swift in Sources */,
+				58D108831D21D447007B6BF3 /* MyClosetViewController.swift in Sources */,
 				58774DE41D19F43C0033CCE8 /* UserAccount.swift in Sources */,
 				587EA9E01D1E547E00624423 /* WRWWApi.swift in Sources */,
 				58C3A9761D126864008DC3CF /* FirstViewController.swift in Sources */,

@@ -15,4 +15,6 @@ target 'WRWW' do
   pod 'TTTAttributedLabel'
   pod 'Locksmith'
   pod 'Fusuma'
+  pod 'DropDown'
+  pod 'CollectionViewWaterfallLayout'
 end

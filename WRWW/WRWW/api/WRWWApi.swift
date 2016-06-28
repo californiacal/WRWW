@@ -80,6 +80,28 @@ class UserClosetItemRepository : LBPersistedModelRepository     {
 
 
 
+// API object for the user_outfit_category
+class UserOutfitCategory : LBPersistedModel {
+    var id: NSNumber!
+    var outfit_name: String!
+    var owner_id: NSNumber!
+    var create_date: NSDate!
+    var delete_datetime: NSDate!
+    
+    var user_outfits: [UserOutfit]? = nil
+}
+
+class UserOutfitCategoryRepository : LBPersistedModelRepository     {
+    override init() {
+        super.init(className: "user_outfit_categories")
+    }
+    class func repository() -> UserOutfitCategoryRepository {
+        return UserOutfitCategoryRepository()
+    }
+}
+
+
+
 // API object for the user_outfit
 class UserOutfit : LBPersistedModel {
     var id: NSNumber!

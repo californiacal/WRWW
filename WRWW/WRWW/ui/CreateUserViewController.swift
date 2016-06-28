@@ -80,12 +80,6 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate, U
         let range  = originalString.rangeOfString("privacy policy & terms of service")
         legalLabel?.addLinkToURL(NSURL(string:"http://www.swengames.com"), withRange: range)
         
-        do {
-            let dictionary = Locksmith.loadDataForUserAccount("WRWW")
-            print(dictionary)
-        } catch _ {
-            
-        }
     }
     
     
@@ -95,7 +89,7 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate, U
         {
             print("LOGIN link pressed")
             
-            // FIXME: Transition to a login screen instead of an account creation screen
+            // Transition to a login screen instead of an account creation screen
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mainVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("LoginUserViewController")
             
@@ -137,44 +131,9 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate, U
         {
             let userAccount : User = AppDelegate.userAccountRepository.createUserWithEmail(emailTextField.text, password: passwordTextField.text) as! User
             userAccount.saveWithSuccess({
-                AppDelegate.userAccountRepository.loginWithEmail(userAccount.email, password: userAccount.password, success: { (accessToken:LBAccessToken!) in
-                    print("Success")
-                    print(accessToken)
-                    
-                    
-                    
-                    do {
-                        let dictionary = try Locksmith.loadDataForUserAccount("WRWW")
-                        if dictionary == nil {
-                            try Locksmith.saveData(["username": userAccount.email, "password": userAccount.password], forUserAccount: "WRWW")
-                        }
-                    } catch _ {
-                        
-                    }
-                    
-                    // FIXME: perform a post to create an entry in the content_user table with the correct phone number and owner_id as the foreign key for the User table
-                    
-                    
-                    // Only do this transition of the account creation succeeded
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let mainVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("PrimaryTabBarViewController")
-                    
-                    self.navigationController?.setViewControllers([mainVC], animated: true)
-                    
-                }) { (err:NSError!) in
-                    print("Error on login to new user account")
-                    
-                    // create the alert
-                    let alert = UIAlertController(title: "User login error", message: "Unable to log in to user account.", preferredStyle: UIAlertControllerStyle.Alert)
-                    
-                    // add an action (button)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    
-                    // show the alert
-                    self.presentViewController(alert, animated: true, completion: nil)
-                    
-                    print(err)
-                }
+                
+                self.loginToUserAccount(userAccount.email, password: userAccount.password)                
+                
             }) { (err:NSError!) in
                 print("Error on new user account save")
                 
@@ -193,6 +152,55 @@ class CreateUserViewController : UIViewController, TTTAttributedLabelDelegate, U
             
         }
         
+    }
+    
+    func loginToUserAccount(account:String, password:String)
+    {
+        AppDelegate.userAccountRepository.loginWithEmail(account, password: password, success: { (accessToken:LBAccessToken!) in
+            print("Success")
+            print(accessToken)
+            
+            if let result_number = accessToken.valueForKey("userId") as? NSNumber
+            {
+                AppDelegate.userId = "\(result_number)"
+            }
+            
+            do {
+                let dictionary = Locksmith.loadDataForUserAccount("WRWW")
+                if dictionary == nil {
+                    try Locksmith.saveData(["username": account, "password": password], forUserAccount: "WRWW")
+                }
+                else
+                {
+                    try Locksmith.updateData(["username": account, "password": password], forUserAccount: "WRWW")
+                }
+            } catch _ {
+                
+            }
+            
+            // FIXME: perform a post to create an entry in the content_user table with the correct phone number and owner_id as the foreign key for the User table
+            
+            
+            // Only do this transition of the account creation succeeded
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("PrimaryTabBarViewController")
+            
+            self.navigationController?.setViewControllers([mainVC], animated: true)
+            
+        }) { (err:NSError!) in
+            print("Error on login to user account")
+            
+            // create the alert
+            let alert = UIAlertController(title: "User login error", message: "Unable to log in to user account.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            
+            // show the alert
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            print(err)
+        }
     }
 
     

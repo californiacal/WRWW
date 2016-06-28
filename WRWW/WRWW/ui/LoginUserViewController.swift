@@ -48,13 +48,12 @@ class LoginUserViewController : UIViewController, TTTAttributedLabelDelegate, UI
         recoverLabel?.addLinkToURL(NSURL(string:"http://www.swengames.com"), withRange: recoverLabelRange)
         
         do {
-            let dictionary:NSDictionary? = Locksmith.loadDataForUserAccount("WRWW")! as NSDictionary
+            
+            let dictionary = Locksmith.loadDataForUserAccount("WRWW") as NSDictionary?
             print(dictionary)
             if dictionary != nil {
                 self.loginToUserAccount(dictionary?.valueForKey("username") as! String, password: dictionary?.valueForKey("password") as! String)
             }
-        } catch _ {
-            
         }
     }
     
@@ -115,9 +114,13 @@ class LoginUserViewController : UIViewController, TTTAttributedLabelDelegate, UI
             }
             
             do {
-                let dictionary = try Locksmith.loadDataForUserAccount("WRWW")
+                let dictionary = Locksmith.loadDataForUserAccount("WRWW")
                 if dictionary == nil {
                     try Locksmith.saveData(["username": account, "password": password], forUserAccount: "WRWW")
+                }
+                else
+                {
+                    try Locksmith.updateData(["username": account, "password": password], forUserAccount: "WRWW")
                 }
             } catch _ {
                 

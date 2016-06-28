@@ -45,13 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let _ = AppDelegate.userAccountRepository
         
         
-        do {
-            let dictionary = Locksmith.loadDataForUserAccount("WRWW")
-            print(dictionary)
-        } catch _ {
-            
-        }
-        
         return true
     }
 
