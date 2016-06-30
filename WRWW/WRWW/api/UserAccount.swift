@@ -39,3 +39,19 @@ class UserRepository : LBUserRepository {
 class User : LBUser {
     
 }
+
+
+
+class Container : LBFile {
+    
+}
+
+class ContainerRepository : LBFileRepository
+{
+    override init!(className name: String!) {
+        super.init(className: "containers")
+    }
+    override init() {
+        super.init(className: "containers")
+    }
+}

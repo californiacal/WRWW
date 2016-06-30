@@ -49,21 +49,31 @@ class FirstViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         
         
-        // Retrieve a limited list with includes
-        AppDelegate.userClosetRepository.findWithFilter(["where":["id":3],"include":"user_closet_items"], success: { (objectList:[AnyObject]!) in
-            print(objectList)
-            if let closets = objectList as? [UserCloset] {
-                for closet in closets {
-                    print(closet)
-                    
-                    
-                    //let closetItem:UserClosetItem = AppDelegate.userClosetItemRepository.modelWithDictionary(closet.user_closet_items![1] as [NSObject : AnyObject]) as! UserClosetItem
-                    //print(closetItem)
-                    
-                }
-            }
+//        // Retrieve a limited list with includes
+//        AppDelegate.userClosetRepository.findWithFilter(["where":["id":3],"include":"user_closet_items"], success: { (objectList:[AnyObject]!) in
+//            print(objectList)
+//            if let closets = objectList as? [UserCloset] {
+//                for closet in closets {
+//                    print(closet)
+//                    
+//                    
+//                    //let closetItem:UserClosetItem = AppDelegate.userClosetItemRepository.modelWithDictionary(closet.user_closet_items![1] as [NSObject : AnyObject]) as! UserClosetItem
+//                    //print(closetItem)
+//                    
+//                }
+//            }
+//        }) { (err:NSError!) in
+//            print(err)
+//        }
+
+        
+        // This was an INCREDIBLY easy way to get S3 uploads working!
+        let image:UIImage = UIImage(named: "Plus")!
+        let data:NSData = UIImagePNGRepresentation(image)!
+        AppDelegate.containerRepository.uploadWithName("testFile.png", container: "wrww", data: data, contentType: "image/png", success: { (file:LBFile!) in
+            print("Success uploading image")
         }) { (err:NSError!) in
-            print(err)
+            print("Error uploading image: \(err)")
         }
         
         

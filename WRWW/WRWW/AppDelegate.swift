@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     static let userAccountRepository = adapter.repositoryWithClass(UserRepository) as! UserRepository
     
+    static let containerRepository = adapter.repositoryWithClass(ContainerRepository) as! ContainerRepository
+    
     static var userId:String? = nil
     
     static let wrwwColor:UIColor = UIColor(red: 0xE4/255.0, green: 0x23/255.0, blue: 0x7B/255.0, alpha: 1.0)
@@ -47,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let _ = AppDelegate.userOutfitRepository
         let _ = AppDelegate.userOutfitItemRepository
         let _ = AppDelegate.userAccountRepository
+        let _ = AppDelegate.containerRepository
+        
         
         
         return true
