@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2648D0C9137480EF9B2AB7D5 /* Pods_WRWW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C98A6E8AA34C7DE5AF0DD5 /* Pods_WRWW.framework */; };
+		5872FC6F1D25749800FD8083 /* Gotham Book.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5872FC6A1D25749800FD8083 /* Gotham Book.ttf */; };
+		5872FC701D25749800FD8083 /* GOTHAM-BLACK.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5872FC6B1D25749800FD8083 /* GOTHAM-BLACK.TTF */; };
+		5872FC711D25749800FD8083 /* GOTHAM-BOLD.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5872FC6C1D25749800FD8083 /* GOTHAM-BOLD.TTF */; };
+		5872FC721D25749800FD8083 /* GOTHAM-LIGHT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5872FC6D1D25749800FD8083 /* GOTHAM-LIGHT.TTF */; };
+		5872FC731D25749800FD8083 /* GOTHAM-MEDIUM.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5872FC6E1D25749800FD8083 /* GOTHAM-MEDIUM.TTF */; };
+		5872FC751D25795E00FD8083 /* WRWWTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5872FC741D25795E00FD8083 /* WRWWTabBarViewController.swift */; };
 		58774DE41D19F43C0033CCE8 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58774DE31D19F43C0033CCE8 /* UserAccount.swift */; };
 		587EA9D81D1AEE7200624423 /* PagedIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587EA9D71D1AEE7200624423 /* PagedIntroViewController.swift */; };
 		587EA9DA1D1AF17200624423 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587EA9D91D1AF17200624423 /* Intro.storyboard */; };
@@ -29,6 +35,12 @@
 
 /* Begin PBXFileReference section */
 		35C98A6E8AA34C7DE5AF0DD5 /* Pods_WRWW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WRWW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5872FC6A1D25749800FD8083 /* Gotham Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Book.ttf"; sourceTree = "<group>"; };
+		5872FC6B1D25749800FD8083 /* GOTHAM-BLACK.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACK.TTF"; sourceTree = "<group>"; };
+		5872FC6C1D25749800FD8083 /* GOTHAM-BOLD.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BOLD.TTF"; sourceTree = "<group>"; };
+		5872FC6D1D25749800FD8083 /* GOTHAM-LIGHT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-LIGHT.TTF"; sourceTree = "<group>"; };
+		5872FC6E1D25749800FD8083 /* GOTHAM-MEDIUM.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-MEDIUM.TTF"; sourceTree = "<group>"; };
+		5872FC741D25795E00FD8083 /* WRWWTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WRWWTabBarViewController.swift; sourceTree = "<group>"; };
 		58774DE31D19F43C0033CCE8 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		587EA9D71D1AEE7200624423 /* PagedIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedIntroViewController.swift; sourceTree = "<group>"; };
 		587EA9D91D1AF17200624423 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
@@ -82,6 +94,18 @@
 			path = api;
 			sourceTree = "<group>";
 		};
+		5872FC691D25749800FD8083 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				5872FC6A1D25749800FD8083 /* Gotham Book.ttf */,
+				5872FC6B1D25749800FD8083 /* GOTHAM-BLACK.TTF */,
+				5872FC6C1D25749800FD8083 /* GOTHAM-BOLD.TTF */,
+				5872FC6D1D25749800FD8083 /* GOTHAM-LIGHT.TTF */,
+				5872FC6E1D25749800FD8083 /* GOTHAM-MEDIUM.TTF */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		587EA9D51D1AEE7200624423 /* ui */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +148,7 @@
 		58C3A9721D126864008DC3CF /* WRWW */ = {
 			isa = PBXGroup;
 			children = (
+				5872FC691D25749800FD8083 /* resources */,
 				586338691D18B7D300279C33 /* api */,
 				587EA9D51D1AEE7200624423 /* ui */,
 				58C3A9731D126864008DC3CF /* AppDelegate.swift */,
@@ -143,6 +168,7 @@
 				58D108801D21CC27007B6BF3 /* AccountPageViewController.swift */,
 				58D108821D21D447007B6BF3 /* MyClosetViewController.swift */,
 				58D108841D21EA4A007B6BF3 /* ClosetCell.swift */,
+				5872FC741D25795E00FD8083 /* WRWWTabBarViewController.swift */,
 			);
 			path = mainpages;
 			sourceTree = "<group>";
@@ -226,11 +252,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5872FC6F1D25749800FD8083 /* Gotham Book.ttf in Resources */,
+				5872FC711D25749800FD8083 /* GOTHAM-BOLD.TTF in Resources */,
 				58D1088A1D22589E007B6BF3 /* MyCloset.storyboard in Resources */,
 				58C3A9801D126864008DC3CF /* LaunchScreen.storyboard in Resources */,
+				5872FC701D25749800FD8083 /* GOTHAM-BLACK.TTF in Resources */,
 				58C3A97D1D126864008DC3CF /* Assets.xcassets in Resources */,
 				58C3A97B1D126864008DC3CF /* Main.storyboard in Resources */,
 				587EA9DA1D1AF17200624423 /* Intro.storyboard in Resources */,
+				5872FC721D25749800FD8083 /* GOTHAM-LIGHT.TTF in Resources */,
+				5872FC731D25749800FD8083 /* GOTHAM-MEDIUM.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +322,7 @@
 			files = (
 				58D108851D21EA4A007B6BF3 /* ClosetCell.swift in Sources */,
 				587EA9D81D1AEE7200624423 /* PagedIntroViewController.swift in Sources */,
+				5872FC751D25795E00FD8083 /* WRWWTabBarViewController.swift in Sources */,
 				58D108881D225860007B6BF3 /* AddClothingCategorySelectViewController.swift in Sources */,
 				58C3A9781D126864008DC3CF /* SecondViewController.swift in Sources */,
 				58C3A9741D126864008DC3CF /* AppDelegate.swift in Sources */,

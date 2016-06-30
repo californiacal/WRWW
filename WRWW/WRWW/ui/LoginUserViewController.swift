@@ -20,12 +20,20 @@ class LoginUserViewController : UIViewController, TTTAttributedLabelDelegate, UI
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
+    
     
     override func viewDidLoad() {
         
         
         let linkColor = UIColor.blueColor()
         let linkActiveColor = UIColor.blueColor()
+        
+        
+        // Set up the login button
+        loginButton.layer.cornerRadius = loginButton.frame.height/2
+        loginButton.layer.borderWidth = 0
+        loginButton.layer.borderColor = UIColor.clearColor().CGColor
         
         // Set up the sign up label
         self.signupLabel?.numberOfLines = 2

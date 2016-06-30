@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 class PagedIntroViewController : UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+    
+    
+    @IBOutlet weak var getStartedButton: UIButton!
+    
     @IBOutlet weak var pageControl : UIPageControl?
     @IBOutlet weak var pageTextLabel : UILabel?
     weak var pagedViewController: UIPageViewController?
@@ -50,13 +54,18 @@ class PagedIntroViewController : UIViewController, UIPageViewControllerDelegate,
         
         // Configure the page control
         self.pageControl?.currentPage = 0
-        self.pageControl?.pageIndicatorTintColor = UIColor.lightGrayColor()
-        self.pageControl?.currentPageIndicatorTintColor = UIColor.darkGrayColor()
+        self.pageControl?.pageIndicatorTintColor = UIColor.darkGrayColor()
+        self.pageControl?.currentPageIndicatorTintColor = AppDelegate.wrwwColor
         self.pageControl?.numberOfPages = pages.count
         
         // Configure the page label
         self.pageTextLabel?.numberOfLines = 0
         self.pageTextLabel?.text = pagesText[0]
+        
+        // Set up the Get Started button
+        getStartedButton.layer.cornerRadius = getStartedButton.frame.height/2
+        getStartedButton.layer.borderWidth = 0
+        getStartedButton.layer.borderColor = UIColor.clearColor().CGColor
     }
     
 

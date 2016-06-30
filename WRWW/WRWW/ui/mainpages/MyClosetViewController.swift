@@ -19,11 +19,37 @@ class MyClosetViewController : UIViewController, UICollectionViewDelegate, UICol
     
     let categoryDropdown = DropDown()
     
+    func scaleImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+        } else {
+            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
     override func viewDidLoad() {
         
         // Create the full color button for the toolbar
-        let image:UIImage? = UIImage(named: "Plus")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        let barItem:UIBarButtonItem? = UIBarButtonItem(image: image, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(MyClosetViewController.onBarItem))
+        let image:UIImage? = UIImage(named: "Plus")
+        let scaledImage = self.scaleImage(image!, targetSize: CGSize(width: 0.6*self.topToolbar.frame.height,height: 0.6*self.topToolbar.frame.height)).imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        let barItem:UIBarButtonItem? = UIBarButtonItem(image: scaledImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(MyClosetViewController.onBarItem))
         
         // Replace the last item with the full-color item
         var pp = self.topToolbar.items
@@ -31,6 +57,7 @@ class MyClosetViewController : UIViewController, UICollectionViewDelegate, UICol
         self.topToolbar.setItems(pp, animated: false)
         
         
+        categoryDropdown.textFont = UIFont(name: "Gotham Light", size: 17.0)!
         categoryDropdown.anchorView = categorySelectionBar
         categoryDropdown.dataSource = ["Accessories", "Dresses", "Handbags"]
         categoryDropdown.selectionAction = { [unowned self] (index: Int, item: String) in
@@ -99,8 +126,9 @@ class MyClosetViewController : UIViewController, UICollectionViewDelegate, UICol
         
         let cell:ClosetCell? = collectionView.dequeueReusableCellWithReuseIdentifier("ClosetCell", forIndexPath: indexPath) as? ClosetCell
         
+        cell?.centerLabel.font = UIFont(name: "Gotham Light", size: 17.0)
         cell?.centerLabel.text = "\(indexPath.row), \(indexPath.item)"
-        cell?.backgroundColor = UIColor.redColor()
+        cell?.backgroundColor = UIColor.whiteColor()
         
         return cell!
     }

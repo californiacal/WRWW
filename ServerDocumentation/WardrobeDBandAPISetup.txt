@@ -1,0 +1,73 @@
+The intent of this guide is to go from a database schema all the way to a functioning Loopback API
+
+Pre-steps
+1) I export the database schema for the database that Cal had made on the server
+2) I edited the schema to fix the user_outfit_item to fk to the correct ids in user_outfit and user_closet_item
+3) Now I am going to go through the entire process of setting up a system using both the database and loopback
+
+Installing the Strongloop and loopback system
+Install node and npm V6
+curl --silent --location https://rpm.nodesource.com/setup_6.x | bash -
+yum install -y nodejs
+
+Install strong loop and utilities
+npm install -g strongloop
+npm install -g loopback
+npm install -g cookie-parser
+npm install -g errorhandler
+npm install loopback-connector-mysql --save
+
+Create the database and import the data
+mysql -u root -e "CREATE DATABASE Wardrobe"
+mysql -u root Wardrobe < wardrobe_schema.sql
+
+Create the API application and get all the database connectors set up
+
+Execute the following commands at the command line
+s40070180:src jpswensen$ slc loopback
+...
+? What's the name of your application? WRWW_api
+? Enter name of the directory to contain the project: WRWW_api
+   create WRWW_api/
+     info change the working directory to WRWW_api
+
+? What kind of application do you have in mind? api-server (A LoopBack API server with local User auth)
+...
+s40070180:src jpswensen$ cd WRWW_api/
+s40070180:WRWW_api jpswensen$ npm install loopback-connector-mysql --save
+...
+s40070180:WRWW_api jpswensen$ slc loopback:datasource
+? Enter the data-source name: mysql_db
+? Select the connector for mysql_db: MySQL (supported by StrongLoop)
+Connector-specific configuration:
+? Connection String url to override other settings (eg: mysql://user:pass@host/db): mysql://root@localhost/Wardrobe
+? host: localhost
+? port: 3306
+? user: root
+? password:
+? database: Wardrobe
+
+Set up the default loopback tables for user authentication
+     (1) In server/model-config.json, change the datasource to mysql_db for User, AccessToken, ACL, RoleMapping, and Role
+     (2) Make a file called server/create-lb-tables.js with the following contents
+var server = require('./server');
+var ds = server.dataSources.mysql_db;
+var lbTables = ['User', 'AccessToken', 'ACL', 'RoleMapping', 'Role'];
+ds.automigrate(lbTables, function(er) {
+  if (er) throw er;
+  console.log('Loopback tables [' + lbTables + '] created in ', ds.adapter.name);
+  ds.disconnect();
+});
+     (3) Run ‘node create-lv-tables.js’ from the server directory
+
+Make loopback models for each of the wardrobe tables
+Execute
+     slc loopback:model
+for each table in the database
+
+Make loopback relations fore each of the wardrobe tables
+Execute
+     slc loopback:relation
+and add the correct relationships. In most cases, we want to add the relation in both directions (e.g. a Customer and Order  have both “Customer hasMany Orders” and “Order belongsTo Customer” relations). Having it in both directions makes the api more fully functions when using filters.
+
+Make iOS Swift classes with the loopback-ios-sdk that inherit from LBPersistedModel and LBPersistedModelRepository that match the table datatypes (potentially make a script that parses the SQL schema and generates the Swift classes

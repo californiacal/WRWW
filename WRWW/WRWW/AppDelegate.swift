@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    static let adapter = LBRESTAdapter(URL: NSURL(string: "http://localhost:3000/api/"))
+    //http://52.9.234.153:3000/explorer/
+    //static let adapter = LBRESTAdapter(URL: NSURL(string: "http://localhost:3000/api/"))
+    static let adapter = LBRESTAdapter(URL: NSURL(string: "http://52.9.234.153:3000/api/"))
     static let wardrobeUserRepository = adapter.repositoryWithClass(WardrobeUserRepository) as! WardrobeUserRepository
     
     static let userClosetRepository = adapter.repositoryWithClass(UserClosetRepository) as! UserClosetRepository
@@ -32,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static let userAccountRepository = adapter.repositoryWithClass(UserRepository) as! UserRepository
     
     static var userId:String? = nil
+    
+    static let wrwwColor:UIColor = UIColor(red: 0xE4/255.0, green: 0x23/255.0, blue: 0x7B/255.0, alpha: 1.0)
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
