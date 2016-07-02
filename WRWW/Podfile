@@ -14,7 +14,8 @@ target 'WRWW' do
   pod 'SlackTextViewController'
   pod 'TTTAttributedLabel'
   pod 'Locksmith'
-  pod 'Fusuma'
+  pod 'CameraManager', '~> 2.2'
   pod 'DropDown'
   pod 'CollectionViewWaterfallLayout'
+  pod 'SCLAlertView'
 end

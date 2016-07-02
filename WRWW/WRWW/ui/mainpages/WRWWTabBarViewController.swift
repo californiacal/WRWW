@@ -19,6 +19,19 @@ extension UIImage {
         return image
     }
     
+    func scaleUIImageToSize(let size: CGSize) -> UIImage {
+        let hasAlpha = true
+        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+        self.drawInRect(CGRect(origin: CGPointZero, size: size))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage
+    }
+    
 }
 
 class WRWWTabBarController : UITabBarController {

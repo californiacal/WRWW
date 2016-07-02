@@ -6,6 +6,7 @@ PODS:
   - Bolts/AppLinks (1.7.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.7.0)
+  - CameraManager (2.2.3)
   - CollectionViewWaterfallLayout (0.2.2)
   - DropDown (0.1.5)
   - FBSDKCoreKit (4.12.0):
@@ -14,22 +15,23 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.12.0):
     - FBSDKCoreKit
-  - Fusuma (0.4.1)
   - Locksmith (2.0.8)
   - LoopBack (1.3.0)
+  - SCLAlertView (0.5.8)
   - SlackTextViewController (1.9.3)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - CameraManager (~> 2.2)
   - CollectionViewWaterfallLayout
   - DropDown
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
-  - Fusuma
   - Locksmith
   - LoopBack (from `https://github.com/strongloop/loopback-sdk-ios.git`)
+  - SCLAlertView
   - SlackTextViewController
   - TTTAttributedLabel
 
@@ -45,17 +47,18 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  CameraManager: aca6ae93237ca5f10d0f234d4cadda28caee22ca
   CollectionViewWaterfallLayout: b4f9aabad89609696ea3f6dceff956dd58e2bae4
   DropDown: addffd49f2a014e079ed854adcb3c5473c1ebdf2
   FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
   FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
-  Fusuma: 4dbaa05a2a20ab11a41f8dedbe650c904ea99625
   Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   LoopBack: 0ae752b0c1d3f572e1d949945a7651f61c433f9e
+  SCLAlertView: 653e84d1f9fd95333bc54671fbadb7d0c47fce49
   SlackTextViewController: bd2a34c188d4f7dec93cf42388f38551263fac82
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 6dfe01f25d3b7aea2dde689f39dd877541f72755
+PODFILE CHECKSUM: 025a52b6aae7ce7740d3427df3960f9974766b99
 
 COCOAPODS: 1.0.1

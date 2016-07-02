@@ -163,8 +163,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kw7-AG-RIN">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kw7-AG-RIN">
                                 <rect key="frame" x="0.0" y="20" width="600" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="2fA-fL-AvD"/>
                                 </constraints>
@@ -192,14 +193,14 @@
                                         </view>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="89s-AQ-peN"/>
-                                    <barButtonItem image="Plus" style="plain" id="rXH-vd-fAW"/>
+                                    <barButtonItem image="PlusClosed" style="plain" id="rXH-vd-fAW"/>
                                 </items>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1E-6w-eym">
-                                <rect key="frame" x="0.0" y="80" width="600" height="60"/>
+                                <rect key="frame" x="15" y="90" width="570" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="QOe-UR-5Hc"/>
+                                    <constraint firstAttribute="height" constant="40" id="QOe-UR-5Hc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="GothamLight" family="Gotham Light" pointSize="22"/>
                                 <state key="normal" title="All Clothing Categories">
@@ -210,7 +211,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8OR-W8-qDJ">
-                                <rect key="frame" x="0.0" y="140" width="600" height="411"/>
+                                <rect key="frame" x="0.0" y="130" width="600" height="421"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wDs-m0-f3a">
                                     <size key="itemSize" width="287" height="160"/>
@@ -253,11 +254,11 @@
                             <constraint firstItem="Kw7-AG-RIN" firstAttribute="centerX" secondItem="Htb-Hc-D59" secondAttribute="centerX" id="UvY-pK-Y7F"/>
                             <constraint firstItem="8OR-W8-qDJ" firstAttribute="width" secondItem="Htb-Hc-D59" secondAttribute="width" id="XIk-fE-nkI"/>
                             <constraint firstItem="Kw7-AG-RIN" firstAttribute="width" secondItem="Htb-Hc-D59" secondAttribute="width" id="ZVU-Hi-Cia"/>
-                            <constraint firstItem="c1E-6w-eym" firstAttribute="width" secondItem="Htb-Hc-D59" secondAttribute="width" id="ekI-MO-nf7"/>
+                            <constraint firstItem="c1E-6w-eym" firstAttribute="width" secondItem="Htb-Hc-D59" secondAttribute="width" multiplier="0.95" id="ekI-MO-nf7"/>
                             <constraint firstItem="c1E-6w-eym" firstAttribute="centerX" secondItem="Htb-Hc-D59" secondAttribute="centerX" id="ewP-wU-2aA"/>
                             <constraint firstItem="Kw7-AG-RIN" firstAttribute="top" secondItem="3ge-LP-GMU" secondAttribute="bottom" id="mWW-YN-Z2r"/>
                             <constraint firstItem="8OR-W8-qDJ" firstAttribute="centerX" secondItem="Htb-Hc-D59" secondAttribute="centerX" id="reW-Ai-coZ"/>
-                            <constraint firstItem="c1E-6w-eym" firstAttribute="top" secondItem="Kw7-AG-RIN" secondAttribute="bottom" id="ySO-u0-Znp"/>
+                            <constraint firstItem="c1E-6w-eym" firstAttribute="top" secondItem="Kw7-AG-RIN" secondAttribute="bottom" constant="10" id="ySO-u0-Znp"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="MyCloset" id="T3u-X1-f0P">
@@ -613,7 +614,7 @@ privacy policy &amp; terms of service</string>
         <image name="Home" width="39" height="33"/>
         <image name="MyCloset" width="46" height="34"/>
         <image name="Notifications" width="38" height="33"/>
-        <image name="Plus" width="47" height="47"/>
+        <image name="PlusClosed" width="24" height="24"/>
         <image name="Profile" width="39" height="35"/>
     </resources>
 </document>

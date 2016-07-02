@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SCLAlertView
 
 class AddClothingCategorySelectViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -22,10 +23,11 @@ class AddClothingCategorySelectViewController : UIViewController, UITableViewDat
         self.categoryTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
         // Create the full color button for the toolbar
-        let image1:UIImage? = UIImage(named: "Plus")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        let image1:UIImage? = self.topToolbar.items![(self.topToolbar.items?.count)!-2].image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         let barItem1:UIBarButtonItem? = UIBarButtonItem(image: image1, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddClothingCategorySelectViewController.onHelpBarItem))
         
-        let image2:UIImage? = UIImage(named: "Filter")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        
+        let image2:UIImage? = self.topToolbar.items![(self.topToolbar.items?.count)!-1].image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         let barItem2:UIBarButtonItem? = UIBarButtonItem(image: image2, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(AddClothingCategorySelectViewController.onCloseBarItem))
         
         // Replace the last item with the full-color item
@@ -52,7 +54,23 @@ class AddClothingCategorySelectViewController : UIViewController, UITableViewDat
     }
     
     func onHelpBarItem(sender: AnyObject) {
-        // FIXME: Add the help popup
+        // Add the help popup
+        let alertViewIcon = UIImage(named: "Help")
+        let appearance = SCLAlertView.SCLAppearance(
+            kTitleFont: UIFont(name: "Gotham Medium", size: 20)!,
+            kTextFont: UIFont(name: "Gotham Light", size: 14)!,
+            kButtonFont: UIFont(name: "Gotham Medium", size: 14)!,
+            showCloseButton: true,
+            showCircularIcon: true,
+            kCircleHeight: (alertViewIcon?.size.height)!,
+            kCircleIconHeight: (alertViewIcon?.size.height)!
+        )
+        
+        
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        
+        alertView.showInfo("Help", subTitle: "You are now adding real clothing from your wardrobe. You will be asked to photograph your clothing and accessories. You can later use these items to put together complete outfits, save your outfits, share with friends, sell, trade, or donate items! First, select the type of clothing you would like to add.", closeButtonTitle: "Got It!", duration: 0, colorStyle: 0xFFFFFF, colorTextButton: 0xE4327B, circleIconImage: alertViewIcon)
     }
     
     func onCloseBarItem(sender: AnyObject) {
@@ -70,6 +88,13 @@ class AddClothingCategorySelectViewController : UIViewController, UITableViewDat
         cell.textLabel?.text = self.categoryStrings![indexPath.row]
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let storyboard = UIStoryboard(name: "MyCloset", bundle: nil)
+        let mainVC: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("ImageCaptureClothingViewController")
+        
+        self.navigationController?.pushViewController(mainVC, animated: true)
     }
     
 }

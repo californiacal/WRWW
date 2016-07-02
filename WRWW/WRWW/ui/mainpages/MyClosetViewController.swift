@@ -46,10 +46,15 @@ class MyClosetViewController : UIViewController, UICollectionViewDelegate, UICol
     }
     override func viewDidLoad() {
         
+        
+        // Set up the sign in button
+        categorySelectionBar.layer.cornerRadius = categorySelectionBar.frame.height/2
+        categorySelectionBar.layer.borderWidth = 0
+        categorySelectionBar.layer.borderColor = UIColor.clearColor().CGColor
+        
         // Create the full color button for the toolbar
-        let image:UIImage? = UIImage(named: "Plus")
-        let scaledImage = self.scaleImage(image!, targetSize: CGSize(width: 0.6*self.topToolbar.frame.height,height: 0.6*self.topToolbar.frame.height)).imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        let barItem:UIBarButtonItem? = UIBarButtonItem(image: scaledImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(MyClosetViewController.onBarItem))
+        let image:UIImage? = self.topToolbar.items![(self.topToolbar.items?.count)!-1].image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)        
+        let barItem:UIBarButtonItem? = UIBarButtonItem(image: image, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(MyClosetViewController.onBarItem))
         
         // Replace the last item with the full-color item
         var pp = self.topToolbar.items
