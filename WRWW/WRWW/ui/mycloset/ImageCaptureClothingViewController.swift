@@ -11,6 +11,9 @@ import UIKit
 import SCLAlertView
 import CameraManager
 
+
+
+
 class ImageCaptureClothingViewController : UIViewController {
     
     
@@ -20,6 +23,8 @@ class ImageCaptureClothingViewController : UIViewController {
     
     
     let cameraManager = CameraManager()
+    
+    let grabCutManager:GrabCutManager? = GrabCutManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,13 +62,62 @@ class ImageCaptureClothingViewController : UIViewController {
         
     }
     
+    func maskImage(image:UIImage, mask:(UIImage))->UIImage{
+        
+        let imageReference = image.CGImage
+        let maskReference = mask.CGImage
+        
+        let imageMask = CGImageMaskCreate(CGImageGetWidth(maskReference),
+                                          CGImageGetHeight(maskReference),
+                                          CGImageGetBitsPerComponent(maskReference),
+                                          CGImageGetBitsPerPixel(maskReference),
+                                          CGImageGetBytesPerRow(maskReference),
+                                          CGImageGetDataProvider(maskReference), nil, true)
+        
+        let maskedReference = CGImageCreateWithMask(imageReference, imageMask)
+        
+        let maskedImage = UIImage(CGImage:maskedReference!)
+        
+        return maskedImage
+    }
+    
     @IBAction func onTakePhotoPressed(sender: AnyObject) {
         
         self.cameraManager.capturePictureWithCompletition({ (image, error) -> Void in
             //self.myImage = image
+            let testImage = UIImage(named: "ShirtOnFloor")
+            let segmented:UIImage! = self.grabCutManager?.doGrabCut(testImage, foregroundBound: CGRect(x: 0, y:0, width: 312, height: 493), iterationCount: 5)
             
+            do {
+                try UIImagePNGRepresentation(segmented)?.writeToFile("/Users/jpswensen/Desktop/image.png", options: NSDataWritingOptions.AtomicWrite)
+            }
+            catch {
+                print (error)
+            }
             // FIXME: Move to the next view with the selected image
         })
+        
+        let testImage = UIImage(named: "JohnShirt")
+        let mask:UIImage! = self.grabCutManager?.doGrabCut(testImage, foregroundBound: CGRect(x: 5, y:77, width: 806, height: 667), iterationCount: 20)
+        let segmented:UIImage! = self.maskImage(testImage!, mask: mask)
+        
+        do {
+            UIGraphicsBeginImageContext(mask.size);
+            mask.drawAtPoint(CGPointZero)
+            let newMask = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            try UIImagePNGRepresentation(newMask)?.writeToFile("/Users/jpswensen/Desktop/mask.png", options: NSDataWritingOptions.AtomicWrite)
+            
+            
+            UIGraphicsBeginImageContext(segmented.size);
+            segmented.drawAtPoint(CGPointZero)
+            let newSegmented = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            try UIImagePNGRepresentation(newSegmented)?.writeToFile("/Users/jpswensen/Desktop/segmented.png", options: NSDataWritingOptions.AtomicWrite)
+        }
+        catch {
+            print (error)
+        }
     }
     
     

@@ -15,6 +15,9 @@
 		5872FC731D25749800FD8083 /* GOTHAM-MEDIUM.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 5872FC6E1D25749800FD8083 /* GOTHAM-MEDIUM.TTF */; };
 		5872FC751D25795E00FD8083 /* WRWWTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5872FC741D25795E00FD8083 /* WRWWTabBarViewController.swift */; };
 		5872FC771D273E3E00FD8083 /* ImageCaptureClothingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5872FC761D273E3E00FD8083 /* ImageCaptureClothingViewController.swift */; };
+		58736FCC1D277E0A004A9EF0 /* GrabCutManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 58736FCB1D277E0A004A9EF0 /* GrabCutManager.mm */; };
+		58736FD41D2781F3004A9EF0 /* ShirtOnFloor.png in Resources */ = {isa = PBXBuildFile; fileRef = 58736FD31D2781F3004A9EF0 /* ShirtOnFloor.png */; };
+		58736FD81D2788A3004A9EF0 /* JohnShirt.png in Resources */ = {isa = PBXBuildFile; fileRef = 58736FD71D2788A3004A9EF0 /* JohnShirt.png */; };
 		58774DE41D19F43C0033CCE8 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58774DE31D19F43C0033CCE8 /* UserAccount.swift */; };
 		587EA9D81D1AEE7200624423 /* PagedIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587EA9D71D1AEE7200624423 /* PagedIntroViewController.swift */; };
 		587EA9DA1D1AF17200624423 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 587EA9D91D1AF17200624423 /* Intro.storyboard */; };
@@ -36,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		35C98A6E8AA34C7DE5AF0DD5 /* Pods_WRWW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WRWW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		584F07AA1D27747B00902EB8 /* GrabCutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrabCutManager.h; sourceTree = "<group>"; };
+		584F07AE1D27765600902EB8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		5872FC6A1D25749800FD8083 /* Gotham Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gotham Book.ttf"; sourceTree = "<group>"; };
 		5872FC6B1D25749800FD8083 /* GOTHAM-BLACK.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BLACK.TTF"; sourceTree = "<group>"; };
 		5872FC6C1D25749800FD8083 /* GOTHAM-BOLD.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-BOLD.TTF"; sourceTree = "<group>"; };
@@ -43,6 +48,10 @@
 		5872FC6E1D25749800FD8083 /* GOTHAM-MEDIUM.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GOTHAM-MEDIUM.TTF"; sourceTree = "<group>"; };
 		5872FC741D25795E00FD8083 /* WRWWTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WRWWTabBarViewController.swift; sourceTree = "<group>"; };
 		5872FC761D273E3E00FD8083 /* ImageCaptureClothingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCaptureClothingViewController.swift; sourceTree = "<group>"; };
+		58736FCB1D277E0A004A9EF0 /* GrabCutManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GrabCutManager.mm; sourceTree = "<group>"; };
+		58736FCF1D277E8E004A9EF0 /* WRWW-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WRWW-Bridging-Header.h"; sourceTree = "<group>"; };
+		58736FD31D2781F3004A9EF0 /* ShirtOnFloor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ShirtOnFloor.png; sourceTree = "<group>"; };
+		58736FD71D2788A3004A9EF0 /* JohnShirt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JohnShirt.png; sourceTree = "<group>"; };
 		58774DE31D19F43C0033CCE8 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		587EA9D71D1AEE7200624423 /* PagedIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedIntroViewController.swift; sourceTree = "<group>"; };
 		587EA9D91D1AF17200624423 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
@@ -87,6 +96,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		584F07A91D27747B00902EB8 /* GrabCut */ = {
+			isa = PBXGroup;
+			children = (
+				58736FCB1D277E0A004A9EF0 /* GrabCutManager.mm */,
+				584F07AA1D27747B00902EB8 /* GrabCutManager.h */,
+			);
+			path = GrabCut;
+			sourceTree = "<group>";
+		};
 		586338691D18B7D300279C33 /* api */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,11 +117,15 @@
 		5872FC691D25749800FD8083 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				58736FD71D2788A3004A9EF0 /* JohnShirt.png */,
+				58736FD31D2781F3004A9EF0 /* ShirtOnFloor.png */,
 				5872FC6A1D25749800FD8083 /* Gotham Book.ttf */,
 				5872FC6B1D25749800FD8083 /* GOTHAM-BLACK.TTF */,
 				5872FC6C1D25749800FD8083 /* GOTHAM-BOLD.TTF */,
 				5872FC6D1D25749800FD8083 /* GOTHAM-LIGHT.TTF */,
 				5872FC6E1D25749800FD8083 /* GOTHAM-MEDIUM.TTF */,
+				584F07A91D27747B00902EB8 /* GrabCut */,
+				58736FCF1D277E8E004A9EF0 /* WRWW-Bridging-Header.h */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -188,6 +210,7 @@
 		AAC651DAC8265CF86868378A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				584F07AE1D27765600902EB8 /* libc++.tbd */,
 				35C98A6E8AA34C7DE5AF0DD5 /* Pods_WRWW.framework */,
 			);
 			name = Frameworks;
@@ -264,6 +287,8 @@
 				58C3A97B1D126864008DC3CF /* Main.storyboard in Resources */,
 				587EA9DA1D1AF17200624423 /* Intro.storyboard in Resources */,
 				5872FC721D25749800FD8083 /* GOTHAM-LIGHT.TTF in Resources */,
+				58736FD81D2788A3004A9EF0 /* JohnShirt.png in Resources */,
+				58736FD41D2781F3004A9EF0 /* ShirtOnFloor.png in Resources */,
 				5872FC731D25749800FD8083 /* GOTHAM-MEDIUM.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +353,7 @@
 				5872FC751D25795E00FD8083 /* WRWWTabBarViewController.swift in Sources */,
 				58D108881D225860007B6BF3 /* AddClothingCategorySelectViewController.swift in Sources */,
 				58C3A9781D126864008DC3CF /* SecondViewController.swift in Sources */,
+				58736FCC1D277E0A004A9EF0 /* GrabCutManager.mm in Sources */,
 				58C3A9741D126864008DC3CF /* AppDelegate.swift in Sources */,
 				587EA9DC1D1AFFBC00624423 /* CreateUserViewController.swift in Sources */,
 				587EA9DE1D1E022C00624423 /* LoginUserViewController.swift in Sources */,
@@ -453,11 +479,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WRWW/resources",
+				);
 				INFOPLIST_FILE = WRWW/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.pich.wrww;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WRWW/resources/WRWW-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -467,11 +498,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/WRWW/resources",
+				);
 				INFOPLIST_FILE = WRWW/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.pich.wrww;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/WRWW/resources/WRWW-Bridging-Header.h";
 			};
 			name = Release;
 		};

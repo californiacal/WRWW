@@ -17,6 +17,7 @@ PODS:
     - FBSDKCoreKit
   - Locksmith (2.0.8)
   - LoopBack (1.3.0)
+  - OpenCV (3.0.0)
   - SCLAlertView (0.5.8)
   - SlackTextViewController (1.9.3)
   - TTTAttributedLabel (2.0.0)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - FBSDKShareKit
   - Locksmith
   - LoopBack (from `https://github.com/strongloop/loopback-sdk-ios.git`)
+  - OpenCV
   - SCLAlertView
   - SlackTextViewController
   - TTTAttributedLabel
@@ -55,10 +57,11 @@ SPEC CHECKSUMS:
   FBSDKShareKit: df1491f064cffc8ebcc3fc8b71be94cc190c728e
   Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   LoopBack: 0ae752b0c1d3f572e1d949945a7651f61c433f9e
+  OpenCV: be07c02f0d8f125f1d40d261e66a66cb66ece3b3
   SCLAlertView: 653e84d1f9fd95333bc54671fbadb7d0c47fce49
   SlackTextViewController: bd2a34c188d4f7dec93cf42388f38551263fac82
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 025a52b6aae7ce7740d3427df3960f9974766b99
+PODFILE CHECKSUM: 85ec74646bd2da806b42827f9a966bf1d8c6c05b
 
 COCOAPODS: 1.0.1

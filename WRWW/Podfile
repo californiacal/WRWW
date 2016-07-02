@@ -18,4 +18,5 @@ target 'WRWW' do
   pod 'DropDown'
   pod 'CollectionViewWaterfallLayout'
   pod 'SCLAlertView'
+  pod 'OpenCV'
 end
